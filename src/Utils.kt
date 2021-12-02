@@ -7,7 +7,13 @@ import java.security.MessageDigest
  */
 fun readInput(name: String) = File("src", "$name.txt").readLines()
 fun readInputAsInts(name: String) = File("src", "$name.txt").readLines().map { it.toInt() }
-fun readInputDay02(name: String) = File("src", "$name.txt").readLines().map{ it.split(' ') }
+
+fun List<String>.toPair(): Pair<String, Int> {
+    require (this.size == 2) { "List is not of length 2!" }
+    val (a, b) = this
+    return Pair(a, b.toInt())
+}
+fun readInputDay02(name: String) : List<Pair<String, Int>> = File("src", "$name.txt").readLines().map{ it.split(' ').toPair() }
 
 /**
  * Converts string to md5 hash.
