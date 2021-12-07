@@ -15,6 +15,9 @@ fun List<String>.toPair(): Pair<String, Int> {
 }
 fun readInputDay02(name: String) : List<Pair<String, Int>> = File("src", "$name.txt").readLines().map{ it.split(' ').toPair() }
 
+fun readCommaSeparatedInputAsInt(name: String): List<Int> = File("src", "$name.txt").readText().split(',').map { it.toInt() }
+
+
 /**
  * Converts string to md5 hash.
  */
